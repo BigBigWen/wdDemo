@@ -1,0 +1,27 @@
+*{margin: 0;padding: 0;}
+li{list-style: none;}
+.clear:after{display: block;clear: both;height: 0px;overflow: hidden;content: ""}
+.container{width: 890px;background-color: #fff;padding: 40px;box-sizing: border-box;}
+.tab>span{line-height:30px;height: 30px; width: 60px;margin-right: 20px;display: inline-block;text-align: center;}
+.tab>span.active{border-bottom: 4px solid #43aefc;}
+.tab>p{background-color:#f5f4f3;line-height: 40px;border: 1px solid #eeeeee;box-sizing: border-box;text-align: center;}
+.tab>p>.t-left{width: 40%;display: inline-block;}
+.tab>p>.t-pay{width: 20%;display: inline-block;}
+.tab>p>.t-state{width:20%;display: inline-block;}
+.tab>p>.t-right{width: 17%;display: inline-block;}
+
+ul>li{border-bottom: 1px solid #eee;padding: 10px 0px;}
+.left{width: 40%;display: inline-block;}
+.left>img{width: 150px;height: 90px;float: left;}
+.left>.l-r{float: right;}
+.l-r h3{font-weight: bold;}
+.orderNum{margin-top: 20px}
+.from{color: #ccc}
+.pay{width: 20%;display: inline-block;vertical-align: top;text-align: center;padding-top: 30px;color: red;}
+.state{display: inline-block;width: 20%;vertical-align: top;text-align: center;padding-top: 30px;color: red}
+.right{width: 17%;display: inline-block;vertical-align: top;text-align: center;padding-top: 30px;}
+.right>p{color:#43aefc}
+.right>p:hover{color: black;}
+.right>.paynow{background-color: red;color: #fff;width: 70px;height: 30px;margin-left: 30px;line-height: 30px;}
+
+

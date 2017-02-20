@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>支付页面</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" href="css/1.css">
+	<!-- <script src="js/jquery.js"></script> -->
+	<script src="js/angular.js"></script>
+	<!-- <script src="js/bootstrap.js"></script> -->
+</head>
+<body ng-controller="cont1">
+<div class="container">
+	<div class="row tab">
+		
+	</div>
+</div>
+	<div class="container">
+		<div class="tab">
+			<span class="active" ng-click='checkCon(0)' ng-class="{active:showIndex==0}">全部</span>
+			<span ng-model="paid" ng-click='checkCon(1)' ng-class="{active:showIndex==1}">已支付</span>
+			<span ng-model="nopaid" ng-click='checkCon(2)' ng-class="{active:showIndex==2}">未支付</span>
+			<p>
+				<span class="t-left">项目信息</span>
+				<span class="t-pay">实付款(元)</span>
+				<span class="t-state">交易状态</span>
+				<span class="t-right">操作{{name}}</span>
+			</p>
+	    </div>
+	    <ul class="clear">
+	    	<li ng-repeat="a in dataArr|filter:stateModel" >
+	    		<div class="left clear">
+                    <img ng-src={{a.img}} alt="">
+		    		<div class="l-r">
+		    			<h3>{{a.title}}</h3>
+		    		    <p class="from">{{a.from}}</p>
+		    		    <p class="orderNum">{{a.orderNum}}</p>
+		    		</div>
+	    		</div>
+	    		<span class="pay">{{a.pay}}</span>
+	    		<span class="state">{{a.state==0?"已支付":"未支付"}}</span>
+	    		<div class="right clear">
+	    		    <p class="paynow" ng-show="a.state=='1'">
+	    		    	立即支付
+	    		    </p>
+	    			<p class="operation1">{{a.operation1}}</p>
+	    			<p class="operation2">{{a.operation2}}</p>
+	    		</div>
+	    	</li>
+	    </ul>
+	</div>
+	<script>
+		var app = angular.module("myapp",[]);
+		app.controller("cont1",["$scope",function($scope){
+		$scope.stateModel={"state":""}; 
+		   
+	    $scope.dataArr=[
+	          {
+	          	img:"images/item.png",
+	          	title:"《犹太人在上海》音乐剧",
+	          	from:'by 恒源祥戏剧创意',
+	          	orderNum:'订单号：4496480277289',
+	          	pay:"¥5.00",
+	          	state:0,
+	          	operation1:'交易详情',
+	          	operation2:'删除'
+	          },
+	          {
+	          	img:"images/item.png",
+	          	title:"《犹太人在上海》音乐剧",
+	          	from:'by 恒源祥戏剧创意',
+	          	orderNum:'订单号：4496480277289',
+	          	pay:"¥50.00",
+	          	state:0,
+	          	operation1:'交易详情',
+	          	operation2:'删除'
+	          },
+	          {
+	          	img:"images/item.png",
+	          	title:"《犹太人在上海》音乐剧",
+	          	from:'by 恒源祥戏剧创意',
+	          	orderNum:'订单号：4496480277289',
+	          	pay:"¥158.00",
+	          	state:1,
+	          	operation1:'立即支付',
+	          	operation2:'删除'
+	          },
+	          {
+	          	img:"images/item.png",
+	          	title:"《犹太人在上海》音乐剧",
+	          	from:'by 恒源祥戏剧创意',
+	          	orderNum:'订单号：4496480277289',
+	          	pay:"¥5.00",
+	          	state:0,
+	          	operation1:'交易详情',
+	          	operation2:'删除'
+	          },
+	          {
+	          	img:"images/item.png",
+	          	title:"《犹太人在上海》音乐剧",
+	          	from:'by 恒源祥戏剧创意',
+	          	orderNum:'订单号：4496480277289',
+	          	pay:"¥5.00",
+	          	state:0,
+	          	operation1:'交易详情',
+	          	operation2:'删除'
+	          }
+	        ];
+           $scope.showIndex=0;
+	       $scope.checkCon=function(i){
+              if( i==0 ){
+              	$scope.stateModel = {state:""};
+              }else if(i == 1){
+              	$scope.stateModel = {state:"0"};
+              }else if( i == 2){
+              	$scope.stateModel = {state:"1"};
+              }
+              $scope.showIndex=i;
+	       }
+
+		 }])
+	</script>
+</body>
+</html>
